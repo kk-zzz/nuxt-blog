@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@unocss/nuxt',],
+  components: [
+    {
+      path: '~/components/',
+      pathPrefix: true, // default: true, BaseFooButton, 若是 false，则要使用 Button
+    }
+  ],
 
   // SSG 配置 - 预渲染路由
   nitro: {

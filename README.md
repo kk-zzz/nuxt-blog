@@ -127,3 +127,40 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
     }
   })
   ```
+
+### 2. 使用 @nuxt/content
+
+[@nuxt/content](https://content.nuxt.com/docs/getting-started/installation)
+
+⚠️注意：`content` 文件夹 位于 根目录第一层。
+
+- 1. 安装
+
+  ```bash
+  pnpm add @nuxt/content
+  ```
+
+- 2. nuxt.config.ts 注册 modules
+  ```ts
+  export default defineNuxtConfig({
+    //...
+    modules: ['@nuxt/content']
+  })
+  ```
+
+- 3. 创建 `content.config.ts`
+  ```ts
+  // content.config.ts
+  import { defineContentConfig, defineCollection } from '@nuxt/content'
+
+  export default defineContentConfig({
+    collections: {
+      content: defineCollection({
+        type: 'page',
+        source: '**/*.md'
+      })
+    }
+  })
+  ```
+
+
