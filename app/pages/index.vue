@@ -3,6 +3,13 @@
     <h1>Home</h1>
     <button @click="isDiv = !isDiv">toggle {{ isDiv ? 'button' : 'div' }}</button>
     <component :is="isDiv ? BaseFooDiv : MyButton" />
+    <hr />
+    <section style="height: 1000px;">
+      <h2>MountainsList</h2>
+      <button v-if="!show" @click="show = true">show list</button>
+    </section>
+    <LazyMountainsList v-if="show" hydrate-on-visible @hydrated="onHydrate" />
+
   </div>
 </template>
   
@@ -15,6 +22,11 @@
 import { BaseFooDiv } from '#components'
 const MyButton = resolveComponent('BaseFooButton')
 const isDiv = ref(false)
+const show = ref(false)
+
+function onHydrate() {
+  console.log("Component has been hydrated!")
+}
 </script>
   
 <style lang="scss" scoped>
