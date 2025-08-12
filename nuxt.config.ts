@@ -4,10 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@unocss/nuxt',],
   components: [
-    {
-      path: '~/components/',
-      pathPrefix: true, // default: true, BaseFooButton, 若是 false，则要使用 Button
-    }
+    // default: true, BaseFooButton, 若是 false，则要使用 Button
+    { path: '~/components/', pathPrefix: true, ignore: ['content'] },
+    { path: '~/components/content/', pathPrefix: false }
   ],
 
   // SSG 配置 - 预渲染路由

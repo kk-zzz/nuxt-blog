@@ -163,4 +163,20 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
   })
   ```
 
+- 4. 在 `content/**.md` 中使用vue component
+
+    - 1. 需要在 app/components 创建 `content` 文件夹
+    - 2. **.md 不支持 pathPrefix 所以需要在 `nuxt.config.ts` components 关闭 pathPrefix
+      ```ts
+      export default defineNuxtConfig({
+        //... 其他配置
+        components: [
+          // default: true, BaseFooButton, 若是 false，则要使用 Button
+          { path: '~/components/', pathPrefix: true, ignore: ['content'] },
+          { path: '~/components/content/', pathPrefix: false }
+        ]})
+      ```
+
+      - 3. 使用方式参考[vue-components](https://content.nuxt.com/docs/files/markdown#vue-components)
+
 

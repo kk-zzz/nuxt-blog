@@ -4,11 +4,6 @@
     <button @click="isDiv = !isDiv">toggle {{ isDiv ? 'button' : 'div' }}</button>
     <component :is="isDiv ? BaseFooDiv : MyButton" />
     <hr />
-    <section style="height: 1000px;">
-      <h2>MountainsList</h2>
-      <button v-if="!show" @click="show = true">show list</button>
-    </section>
-    <LazyMountainsList v-if="show" hydrate-on-visible @hydrated="onHydrate" />
 
   </div>
 </template>

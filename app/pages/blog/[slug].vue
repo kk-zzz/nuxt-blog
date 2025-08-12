@@ -1,5 +1,5 @@
 <template>
-  <div class="blog max-w-4xl mx-auto p-6">
+  <div class="blog mx-auto p-6">
     <ContentRenderer v-if="post" :value="post" />
   </div>
 </template>
